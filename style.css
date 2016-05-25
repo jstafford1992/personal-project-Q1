@@ -1,0 +1,17 @@
+/*body {
+  background: url('http://img09.deviantart.net/5f10/i/2012/070/c/a/pokemon_background_by_baddarn-d4sel13.png') no-repeat bottom right;
+}*/
+
+ul {
+  columns: 2;
+  list-style: none;
+}
+
+
+h3 {
+  margin-left: 20%;
+}
+
+label {
+  margin: 10px;
+}

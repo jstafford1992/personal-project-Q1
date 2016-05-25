@@ -92,6 +92,10 @@ function beginBattle(){
     document.getElementById('btnPokeSelect2').disabled = true;
     document.getElementById('battleBegin').disabled = true;
   }
+  pokemon1Health = 100;
+  pokemon2Health = 100;
+  user1Health.innerHTML = "Hp: 100";
+  user2Health.innerHTML = "Hp: 100";
 }
 
 var battleButton = document.getElementById('battleBegin');
@@ -117,20 +121,20 @@ us2mv2.addEventListener('click', getMove);
 us2mv3.addEventListener('click', getMove);
 us2mv4.addEventListener('click', getMove);
 
-
+var moveData;
 //GET MOVE!!!!!!!!!!!!!!!!!!
 function getMove(event) {
-  var moveData;
+
   var damageClass;
   //console.log(event.target.value);
   ajax("GET", "https://pokeapi.co/api/v2/move/" + event.target.value, function(err, data) {
     moveData = data;
-    console.log(data.accuracy);
+    //console.log(data.accuracy);
     //console.log(moveData[damage_class][name]);
     damageClass = moveData.damage_class.name;
     console.log(damageClass);
-    accuracy = data.accuracy;
-    power = data.power;
+    accuracy = moveData.accuracy;
+    power = moveData.power;
 
   });
 
@@ -167,7 +171,7 @@ function attack() {
     checkHealth();
     buttonEnabling();
   } else {
-    console.log("I don't know what the fuck is going on");
+    console.log("I don't know what the fuck is going on inside Attack");
   }
 }
 
@@ -176,15 +180,13 @@ var user1Health = document.querySelector('#us1Health');
 var user2Health = document.querySelector('#us2Health');
 
 
-//ACCURACY DICE ROLL FOR ATTACK
+//ACCURACY DICE ROLL FOR ATTACK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function accJudge() {
-  //compareSpeed();
-  //if
-  // compareAttack2Defense();
-  // compareSpecialAttack2Defense()
-  //call comparison functions.
+  console.log(accuracy);
+  compareSpeed();
   //find way to add bonuses where appropriate.
   if(diceRoll() < accuracy / 10) {
+    console.log(accuracy);
     //successful attack, deduct attack power from health
       pokemon2Health -=  power;
       //console.log(pokemon2Health);
@@ -196,7 +198,10 @@ function accJudge() {
   }
 }
 function accJudge2() {
+  console.log(accuracy);
+  compareSpeed();
   if(diceRoll() < accuracy / 10) {
+    console.log(accuracy);
     //successful attack, deduct attack power from health
       pokemon1Health -=  power;
       //console.log(pokemon1Health);
@@ -357,40 +362,40 @@ function statsPokemon2(){
   }
 }
 
-//
-// //Time to start factoring in stats to attacks
-// function compareSpeed(){
-//   var pokemon1Speed = stats1[speed] / stats2[speed];
-//   var pokemon2Speed = stats2[speed] / stats1[speed];
-//   if (userTurn === pokemon1) {
-//     pokemon1Speed;
-//   } else if (userTurn === pokemon2) {
-//     pokemon2Speed;
-//   } else {
-//     console.log("I fucked up somewhere in compare Speed")
-//   }
-// }
-//
-// function compareAttack2Defense(){
-//   var pokemon1Attack = stats1[attack] / stats2[defense];
-//   var pokemon2Attack = stats2[attack] / stats1[defense];
-//   if(userTurn === pokemon1) {
-//     pokemon1Attack;
-//   } else if (userTurn === pokemon2) {
-//     pokemon2Attack;
-//   } else {
-//     console.log("I fucked up in compare Attack 2 Defense");
-//   }
-// }
-//
-//
+
+//Time to start factoring in stats to attacks
+function compareSpeed(){
+  var pokemon1Speed = stats1.speed / stats2.speed;
+  var pokemon2Speed = stats2.speed / stats1.speed;
+  if (userTurn === pokemon1) {
+    accuracy *= pokemon1Speed;
+  } else if (userTurn === pokemon2) {
+    accuracy *= pokemon2Speed;
+  } else {
+    console.log("I fucked up somewhere in compare Speed")
+  }
+}
+
+function compareAttack2Defense(){
+  var pokemon1Attack = stats1.attack / stats2.defense;
+  var pokemon2Attack = stats2.attack / stats1.defense;
+  if(userTurn === pokemon1) {
+    power *= pokemon1Attack;
+  } else if (userTurn === pokemon2) {
+    power *= pokemon2Attack;
+  } else {
+    console.log("I fucked up in compare Attack 2 Defense");
+  }
+}
+
+
 // function compareSpecialAttack2Defense() {
 //   var pokemon1SpecialAttack = stats1[special-attack] / stats2[special-defense];
 //   var pokemon2SpecialAttack = stats2[special-attack] / stats1[special-defense];
 //   if (userTurn === pokemon1) {
-//     pokemon1SpecialAttack;
+//     power *= pokemon1SpecialAttack;
 //   } else if(userTurn === pokemon2){
-//     pokemon2SpecialAttack;
+//     power *= pokemon2SpecialAttack;
 //   } else {
 //     console.log("I fucked up in special Attack 2 Defense");
 //   }

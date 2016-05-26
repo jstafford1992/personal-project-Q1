@@ -132,13 +132,13 @@ function getMove(event) {
     //console.log(data.accuracy);
     //console.log(moveData[damage_class][name]);
     damageClass = moveData.damage_class.name;
-    console.log(damageClass);
+    //console.log(damageClass);
     accuracy = moveData.accuracy;
     power = moveData.power;
 
   });
 
-console.log(moveData);
+//console.log(moveData);
 attack();
 
 }
@@ -182,11 +182,13 @@ var user2Health = document.querySelector('#us2Health');
 
 //ACCURACY DICE ROLL FOR ATTACK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function accJudge() {
-  console.log(accuracy);
+  //console.log(accuracy);
   compareSpeed();
   //find way to add bonuses where appropriate.
+  //compareAttack2Defense();
+  console.log(power);
   if(diceRoll() < accuracy / 10) {
-    console.log(accuracy);
+    //console.log(accuracy);
     //successful attack, deduct attack power from health
       pokemon2Health -=  power;
       //console.log(pokemon2Health);
@@ -194,14 +196,16 @@ function accJudge() {
       alert("Attack successful");
   } else {
     return alert("Your attack missed!");
-
   }
+  console.log(power);
 }
 function accJudge2() {
-  console.log(accuracy);
+  //console.log(accuracy);
   compareSpeed();
+  //compareAttack2Defense();
+  console.log(power);
   if(diceRoll() < accuracy / 10) {
-    console.log(accuracy);
+    //console.log(accuracy);
     //successful attack, deduct attack power from health
       pokemon1Health -=  power;
       //console.log(pokemon1Health);
@@ -211,6 +215,7 @@ function accJudge2() {
     return alert("Your attack missed!");
 
   }
+  console.log(power);
 }
 //disable user 1 moves
 function disablePokemon1Buttons() {
@@ -287,6 +292,8 @@ function endBattle() {
   document.getElementById('btnPokeSelect1').disabled = false;
   document.getElementById('btnPokeSelect2').disabled = false;
   document.getElementById('battleBegin').disabled = false;
+  el.innerHTML = "Winner!";
+
 
 }
 
@@ -300,15 +307,15 @@ function movesFinderPokemon1() {
   var movesArray = [];
   for(var i = 0; i < pokemon1.moves.length; i++) {
     //console.log(pokemon1.moves[i].move.name);
-    if(pokemon1.moves[i].version_group_details[0].level_learned_at === 0 && pokemon1.moves[i].version_group_details[0].move_learn_method.name === "egg") {
+    if(pokemon1.moves[i].version_group_details[0].level_learned_at === 0) {
       movesArray.push(pokemon1.moves[i].move.name);
     }
   }
   //console.log(movesArray);
-    var move1 = movesArray[diceRoll(movesArray.length - 1)];
-    var move2 = movesArray[diceRoll(movesArray.length - 1)];
-    var move3 = movesArray[diceRoll(movesArray.length - 1)];
-    var move4 = movesArray[diceRoll(movesArray.length - 1)];
+    var move1 = movesArray[diceRoll(movesArray.length)];
+    var move2 = movesArray[diceRoll(movesArray.length)];
+    var move3 = movesArray[diceRoll(movesArray.length)];
+    var move4 = movesArray[diceRoll(movesArray.length)];
 
     document.querySelector('#us1mv1').value = move1;
     document.querySelector('#us1mv1').innerHTML = move1;
@@ -330,10 +337,10 @@ function movesFinderPokemon2() {
     }
   }
   //console.log(movesArray);
-  var move1 = movesArray[diceRoll(movesArray.length - 1)];
-  var move2 = movesArray[diceRoll(movesArray.length - 1)];
-  var move3 = movesArray[diceRoll(movesArray.length - 1)];
-  var move4 = movesArray[diceRoll(movesArray.length - 1)];
+  var move1 = movesArray[diceRoll(movesArray.length)];
+  var move2 = movesArray[diceRoll(movesArray.length)];
+  var move3 = movesArray[diceRoll(movesArray.length)];
+  var move4 = movesArray[diceRoll(movesArray.length)];
 
   document.querySelector('#us2mv1').value = move1;
   document.querySelector('#us2mv1').innerHTML = move1;
@@ -372,7 +379,7 @@ function compareSpeed(){
   } else if (userTurn === pokemon2) {
     accuracy *= pokemon2Speed;
   } else {
-    console.log("I fucked up somewhere in compare Speed")
+    console.log("I fucked up somewhere in compare Speed");
   }
 }
 
@@ -388,6 +395,9 @@ function compareAttack2Defense(){
   }
 }
 
+function compareAttackandDefense() {
+
+}
 
 // function compareSpecialAttack2Defense() {
 //   var pokemon1SpecialAttack = stats1[special-attack] / stats2[special-defense];

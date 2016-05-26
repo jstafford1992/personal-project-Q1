@@ -20,19 +20,19 @@
 
 </head>
 <body>
-  <heading>
+  <header>
     <h1>Pokemon Battle simulator</h1>
     <h3>Select pokemon</h3>
       <form class="form-group text-center">
         <label>User 1 Pokemon</label>
-        <input id="pokeSelect1" type="text-area">
-        <button for="pokeSelect1" type="button" name="I Choose YOU!" id="btnPokeSelect1">I Choose YOU!</button>
+        <input id="pokeSelect1">
+        <button type="button" name="I Choose YOU!" id="btnPokeSelect1">I Choose YOU!</button>
         <label>User 2 Pokemon</label>
-        <input id="pokeSelect2" type="text-area">
-        <button for="pokeSelect2" type="button" name="I Choose YOU!" id="btnPokeSelect2">I Choose YOU!</button>
+        <input id="pokeSelect2">
+        <button type="button" name="I Choose YOU!" id="btnPokeSelect2">I Choose YOU!</button>
         <button value="" type="button" id="battleBegin" >Begin Battle!</button>
     </form>
-  </heading>
+  </header>
 <div class="container-fluid">
   <div class="col-md-12">
     <div class="col-md-offset-4">
@@ -55,7 +55,7 @@
       <div class="col-md-5" >
         <!-- Your first column here -->
         <div class="col-md-12 bg-danger">
-          <img src="http://placehold.it/200x100" id="poke1Sprite"/>
+          <img src="http://placehold.it/200x100" id="poke1Sprite" alt="Pokemon 1 sprite"/>
         </div>
         <div class="col-md-12 bg-success">
           <h4 id="user1Pokemon">User 1 pokemon</h4>
@@ -75,13 +75,13 @@
           </ul>
         </div>
         <div class="col-md-12 bg-danger">
-          <h5 id="us1Health">Hp: 100</h5>
+          <h5 id="us1Health">Hp: </h5>
         </div>
       </div>
       <div class="col-md-5">
         <!-- Your second column here -->
         <div class="col-md-12 bg-success">
-          <img src="http://placehold.it/200x100" id="poke2Sprite" />
+          <img src="http://placehold.it/200x100" id="poke2Sprite" alt="Pokemon 2 sprite"/>
         </div>
         <div class="col-md-12 bg-danger">
           <h4 id="user2Pokemon">User 2 pokemon</h4>
@@ -101,7 +101,7 @@
           </ul>
         </div>
         <div class="col-md-12 bg-success">
-          <h5 id="us2Health">Hp: 100</h5>
+          <h5 id="us2Health">Hp: </h5>
         </div>
       </div>
     </div>

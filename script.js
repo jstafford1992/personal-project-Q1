@@ -34,7 +34,42 @@ function ajax(method, url, handler, data) {
   }
 }
 
-//Sprite1
+
+var us1mv1Data;
+var us1mv1damageClass;
+var us1mv1accuracy;
+var us1mv1power;
+var us1mv2Data;
+var us1mv2damageClass;
+var us1mv2accuracy;
+var us1mv2power;
+var us1mv3Data;
+var us1mv3damageClass;
+var us1mv3accuracy;
+var us1mv3power;
+var us1mv4Data;
+var us1mv4damageClass;
+var us1mv4accuracy;
+var us1mv4power;
+
+var us2mv1Data;
+var us2mv1damageClass;
+var us2mv1accuracy;
+var us2mv1power;
+var us2mv2Data;
+var us2mv2damageClass;
+var us2mv2accuracy;
+var us2mv2power;
+var us2mv3Data;
+var us2mv3damageClass;
+var us2mv3accuracy;
+var us2mv3power;
+var us2mv4Data;
+var us2mv4damageClass;
+var us2mv4accuracy;
+var us2mv4power;
+
+
 var sprite1 = document.getElementById('pokeSelect1');
 function getPokemonSprite() {
   ajax("GET", "http://pokeapi.co/api/v2/pokemon/" + sprite1.value, function(err, data) {
@@ -46,11 +81,53 @@ function getPokemonSprite() {
     document.getElementById("user1Pokemon").innerHTML = pokemon.toUpperCase();
     movesFinderPokemon1();
     statsPokemon1();
+
+
+    ajax("GET", "https://pokeapi.co/api/v2/move/" + us1mv1.value, function(err, data) {
+      us1mv1Data = data;
+      //console.log(data.accuracy);
+      //console.log(us1mv1Data[damage_class][name]);
+      us1mv1damageClass = us1mv1Data.damage_class.name;
+      //console.log(damageClass);
+      us1mv1accuracy = us1mv1Data.accuracy;
+      us1mv1power = us1mv1Data.power;
+
+    });
+    ajax("GET", "https://pokeapi.co/api/v2/move/" + us1mv2.value, function(err, data) {
+      us1mv2Data = data;
+      //console.log(data.accuracy);
+      //console.log(us1mv2Data[damage_class][name]);
+      us1mv2damageClass = us1mv2Data.damage_class.name;
+      //console.log(damageClass);
+      us1mv2accuracy = us1mv2Data.accuracy;
+      us1mv2power = us1mv2Data.power;
+
+    });
+    ajax("GET", "https://pokeapi.co/api/v2/move/" + us1mv3.value, function(err, data) {
+      us1mv3Data = data;
+      //console.log(data.accuracy);
+      //console.log(us1mv3Data[damage_class][name]);
+      us1mv3damageClass = us1mv3Data.damage_class.name;
+      //console.log(damageClass);
+      us1mv3accuracy = us1mv3Data.accuracy;
+      us1mv3power = us1mv3Data.power;
+
+    });
+    ajax("GET", "https://pokeapi.co/api/v2/move/" + us1mv4.value, function(err, data) {
+      us1mv4Data = data;
+      //console.log(data.accuracy);
+      //console.log(us1mv4Data[damage_class][name]);
+      us1mv4damageClass = us1mv4Data.damage_class.name;
+      //console.log(damageClass);
+      us1mv4accuracy = us1mv4Data.accuracy;
+      us1mv4power = us1mv4Data.power;
+
+    });
   });
 }
 var pokeBtn1 = document.getElementById('btnPokeSelect1');
 pokeBtn1.addEventListener('click', getPokemonSprite);
-//Sprite2
+
 var sprite2 = document.getElementById('pokeSelect2');
 function getPokemon2Sprite() {
   ajax("GET", "http://pokeapi.co/api/v2/pokemon/" + sprite2.value, function(err, data) {
@@ -62,10 +139,49 @@ function getPokemon2Sprite() {
     document.getElementById("user2Pokemon").innerHTML = pokemon.toUpperCase();
     movesFinderPokemon2();
     statsPokemon2();
-  });
 
+      ajax("GET", "https://pokeapi.co/api/v2/move/" + us2mv1.value, function(err, data) {
+        us2mv1Data = data;
+        //console.log(data.accuracy);
+        //console.log(us2mv1Data[damage_class][name]);
+        us2mv1damageClass = us2mv1Data.damage_class.name;
+        //console.log(damageClass);
+        us2mv1accuracy = us2mv1Data.accuracy;
+        us2mv1power = us2mv1Data.power;
+
+      });
+      ajax("GET", "https://pokeapi.co/api/v2/move/" + us2mv2.value, function(err, data) {
+        us2mv2Data = data;
+        //console.log(data.accuracy);
+        //console.log(moveData[damage_class][name]);
+        us2mv2damageClass = us2mv2Data.damage_class.name;
+        //console.log(damageClass);
+        us2mv2accuracy = us2mv2Data.accuracy;
+        us2mv2power = us2mv2Data.power;
+
+      });
+      ajax("GET", "https://pokeapi.co/api/v2/move/" + us2mv3.value, function(err, data) {
+        us2mv3Data = data;
+        //console.log(data.accuracy);
+        //console.log(us2mv3Data[damage_class][name]);
+        us2mv3damageClass = us2mv3Data.damage_class.name;
+        //console.log(damageClass);
+        us2mv3accuracy = us2mv3Data.accuracy;
+        us2mv3power = us2mv3Data.power;
+
+      });
+      ajax("GET", "https://pokeapi.co/api/v2/move/" + us2mv4.value, function(err, data) {
+        us2mv4Data = data;
+        //console.log(data.accuracy);
+        //console.log(us2mv4Data[damage_class][name]);
+        us2mv4damageClass = us2mv4Data.damage_class.name;
+        //console.log(damageClass);
+        us2mv4accuracy = us2mv4Data.accuracy;
+        us2mv4power = us2mv4Data.power;
+      });
+  });
 }
- var pokeBtn2 = document.getElementById('btnPokeSelect2');
+var pokeBtn2 = document.getElementById('btnPokeSelect2');
 pokeBtn2.addEventListener('click', getPokemon2Sprite);
 
 function beginBattle(){
@@ -112,33 +228,60 @@ var us2mv2 = document.getElementById('us2mv2');
 var us2mv3 = document.getElementById('us2mv3');
 var us2mv4 = document.getElementById('us2mv4');
 
-us1mv1.addEventListener('click', getMove);
-us1mv2.addEventListener('click', getMove);
-us1mv3.addEventListener('click', getMove);
-us1mv4.addEventListener('click', getMove);
-us2mv1.addEventListener('click', getMove);
-us2mv2.addEventListener('click', getMove);
-us2mv3.addEventListener('click', getMove);
-us2mv4.addEventListener('click', getMove);
+us1mv1.addEventListener('click', getMove1);
+us1mv2.addEventListener('click', getMove1);
+us1mv3.addEventListener('click', getMove1);
+us1mv4.addEventListener('click', getMove1);
+us2mv1.addEventListener('click', getMove2);
+us2mv2.addEventListener('click', getMove2);
+us2mv3.addEventListener('click', getMove2);
+us2mv4.addEventListener('click', getMove2);
 
 var moveData;
-//GET MOVE!!!!!!!!!!!!!!!!!!
-function getMove(event) {
+//Move event listener
+function getMove1(event) {
+
+  if(event.target.id === "us1mv1") {
+    moveData = us1mv1Data;
+  } else if (event.target.id === "us1mv2") {
+    moveData = us1mv2Data;
+  } else if (event.target.id === "us1mv3") {
+    moveData = us1mv3Data;
+  } else if (event.target.id === "us1mv4") {
+    moveData = us1mv4Data;
+  } else {
+    console.log("I fucked up in get Move 1");
+  }
 
   var damageClass;
-  //console.log(event.target.value);
-  ajax("GET", "https://pokeapi.co/api/v2/move/" + event.target.value, function(err, data) {
-    moveData = data;
-    //console.log(data.accuracy);
-    //console.log(moveData[damage_class][name]);
+    console.log(moveData);
     damageClass = moveData.damage_class.name;
-    //console.log(damageClass);
     accuracy = moveData.accuracy;
     power = moveData.power;
+attack();
 
-  });
+}
 
-//console.log(moveData);
+//Move event listener
+function getMove2(event) {
+
+  if(event.target.id === "us2mv1") {
+    moveData = us2mv1Data;
+  } else if (event.target.id === "us2mv2") {
+    moveData = us2mv2Data;
+  } else if (event.target.id === "us2mv3") {
+    moveData = us2mv3Data;
+  } else if (event.target.id === "us2mv4") {
+    moveData = us2mv4Data;
+  } else {
+    console.log("I fucked up in get Move 2");
+  }
+
+  var damageClass;
+    console.log(moveData);
+    damageClass = moveData.damage_class.name;
+    accuracy = moveData.accuracy;
+    power = moveData.power;
 attack();
 
 }

@@ -1,7 +1,9 @@
 # pokeBattle-simulator
 
-![alt text](pokeBattle-simulator/screenshot.png "screenshot of website")
-pokeBattle-simulator/screenshot.png
+
+!["screenshot of website"](./pokeBattle-simulator/screenshot.png)
+screenshot of website
+
 
 
 Description

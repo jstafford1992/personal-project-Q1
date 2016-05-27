@@ -1,6 +1,7 @@
 # pokeBattle-simulator
 
-![Alt text](pokeBattle-simulator/Screen Shot 2016-05-27 at 10.04.35 AM copy.png "Optional Title")
+!["Caption"](https://raw.githubusercontent.com/jstafford1992/pokeBattle-simulator/master/screenshot.png)
+screenshot of website
 
 Description
 

@@ -1,7 +1,7 @@
 # pokeBattle-simulator
 
 
-!["Caption"](pokeBattle-simulator/screenshot.png)
+!["Caption"](https://raw.githubusercontent.com/jstafford1992/pokeBattle-simulator/master/screenshot.png)
 screenshot of website
 
 

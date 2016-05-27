@@ -3,11 +3,12 @@
 <!-- https://wireframe.cc/FGs7hh -->
 
 <html>
+
 <head>
-  <title>
-    Pokemon Battle
-  </title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <title>
+        Pokemon Battle
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -19,94 +20,96 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 </head>
-<body>
-  <header>
-    <h1>Pokemon Battle simulator</h1>
-    <h3>Select pokemon</h3>
-      <form class="form-group text-center">
-        <label>User 1 Pokemon</label>
-        <input id="pokeSelect1">
-        <button type="button" name="I Choose YOU!" id="btnPokeSelect1">I Choose YOU!</button>
-        <label>User 2 Pokemon</label>
-        <input id="pokeSelect2">
-        <button type="button" name="I Choose YOU!" id="btnPokeSelect2">I Choose YOU!</button>
-        <button value="" type="button" id="battleBegin" >Begin Battle!</button>
-    </form>
-  </header>
-<div class="container-fluid">
-  <div class="col-md-12">
-    <div class="col-md-offset-4">
-      <div class="col-md-5">
-        <div class="bg-success text-center">
-          <h1>Battle Stage</h1>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-12">
-    <div class="col-md-offset-3 text-center">
-      <div class="col-md-6 bg-warning" id="turn">
 
-      </div>
+<body>
+    <header>
+        <h1>Pokemon Battle simulator</h1>
+        <h3>Select pokemon</h3>
+        <form class="form-group text-center">
+            <label>User 1 Pokemon</label>
+            <input id="pokeSelect1">
+            <button type="button" name="I Choose YOU!" id="btnPokeSelect1">I Choose YOU!</button>
+            <label>User 2 Pokemon</label>
+            <input id="pokeSelect2">
+            <button type="button" name="I Choose YOU!" id="btnPokeSelect2">I Choose YOU!</button>
+            <button value="" type="button" id="battleBegin">Begin Battle!</button>
+        </form>
+    </header>
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <div class="col-md-offset-4">
+                <div class="col-md-5">
+                    <div class="bg-success text-center">
+                        <h1>Battle Stage</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-offset-3 text-center">
+                <div class="col-md-6 bg-warning" id="turn">
+
+                </div>
+            </div>
+        </div>
+        <div class="modal-body row text-center">
+            <div class="col-md-offset-1">
+                <div class="col-md-5">
+                    <!-- Your first column here -->
+                    <div class="col-md-12 bg-danger">
+                        <img src="http://placehold.it/200x100" id="poke1Sprite" alt="Pokemon 1 sprite" />
+                    </div>
+                    <div class="col-md-12 bg-success">
+                        <h4 id="user1Pokemon">User 1 pokemon</h4>
+                        <ul>
+                            <li>
+                                <button type="button" id="us1mv1" value="tackle">Move 1</button>
+                            </li>
+                            <li>
+                                <button id="us1mv2">Move 2</button>
+                            </li>
+                            <li>
+                                <button id="us1mv3">Move 3</button>
+                            </li>
+                            <li>
+                                <button id="us1mv4">Move 4</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12 bg-danger">
+                        <h5 id="us1Health">Hp: </h5>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <!-- Your second column here -->
+                    <div class="col-md-12 bg-success">
+                        <img src="http://placehold.it/200x100" id="poke2Sprite" alt="Pokemon 2 sprite" />
+                    </div>
+                    <div class="col-md-12 bg-danger">
+                        <h4 id="user2Pokemon">User 2 pokemon</h4>
+                        <ul>
+                            <li>
+                                <button type="button" id="us2mv1" value="tackle">Move 1</button>
+                            </li>
+                            <li>
+                                <button type="button" id="us2mv2">Move 2</button>
+                            </li>
+                            <li>
+                                <button id="us2mv3">Move 3</button>
+                            </li>
+                            <li>
+                                <button id="us2mv4">Move 4</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12 bg-success">
+                        <h5 id="us2Health">Hp: </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="modal-body row text-center">
-    <div class="col-md-offset-1">
-      <div class="col-md-5" >
-        <!-- Your first column here -->
-        <div class="col-md-12 bg-danger">
-          <img src="http://placehold.it/200x100" id="poke1Sprite" alt="Pokemon 1 sprite"/>
-        </div>
-        <div class="col-md-12 bg-success">
-          <h4 id="user1Pokemon">User 1 pokemon</h4>
-          <ul>
-            <li>
-              <button type="button" id="us1mv1" value="tackle">Move 1</button>
-            </li>
-            <li>
-              <button id="us1mv2">Move 2</button>
-            </li>
-            <li>
-              <button id="us1mv3">Move 3</button>
-            </li>
-            <li>
-              <button id="us1mv4">Move 4</button>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-12 bg-danger">
-          <h5 id="us1Health">Hp: </h5>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <!-- Your second column here -->
-        <div class="col-md-12 bg-success">
-          <img src="http://placehold.it/200x100" id="poke2Sprite" alt="Pokemon 2 sprite"/>
-        </div>
-        <div class="col-md-12 bg-danger">
-          <h4 id="user2Pokemon">User 2 pokemon</h4>
-          <ul>
-            <li>
-              <button type="button" id="us2mv1" value="tackle">Move 1</button>
-            </li>
-            <li>
-              <button type="button" id="us2mv2">Move 2</button>
-            </li>
-            <li>
-              <button id="us2mv3">Move 3</button>
-            </li>
-            <li>
-              <button id="us2mv4">Move 4</button>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-12 bg-success">
-          <h5 id="us2Health">Hp: </h5>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
+
 </html>

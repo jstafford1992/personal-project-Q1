@@ -1,7 +1,7 @@
 # pokeBattle-simulator
 
 
-!["screenshot of website"](./pokeBattle-simulator/screenshot.png)
+!["Caption"](./pokeBattle-simulator/screenshot.png)
 screenshot of website
 
 
